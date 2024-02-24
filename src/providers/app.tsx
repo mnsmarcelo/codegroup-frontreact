@@ -11,7 +11,6 @@ export const AppProvider = ({ children }: AppProviderProps) => (
   <QueryClientProvider client={queryClient}>
     <ErrorBoundary
       fallback={<div>Algo deu errado!</div>}
-      onError={console.error}
     >
       {children}
     </ErrorBoundary>

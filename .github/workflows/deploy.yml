@@ -13,13 +13,13 @@ jobs:
         with:
           node-version: 18
       - run: npm install --production
-      - run: npm build
+      - run: npm run build
 
       - name: 📂 Sync files
         uses: keithweaver/aws-s3-github-action@v1.0.0
         with:
           command: cp
-          source: ./out/
+          source: ./build/
           destination: s3://codegroup-frontreact/
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
